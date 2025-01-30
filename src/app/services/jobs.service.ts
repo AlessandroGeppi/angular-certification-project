@@ -1,17 +1,23 @@
 import { effect, Injectable, signal, WritableSignal } from "@angular/core";
-import { Job } from "../../types";
+import { Job, JobDetails } from "../../types";
+import { Observable } from "rxjs";
 
 @Injectable({
   providedIn: "root",
 })
 export class JobsService {
   jobs: WritableSignal<Job[]> = signal([]);
+  jobDetails: WritableSignal<JobDetails> = signal({} as JobDetails);
   favouriteJobs: WritableSignal<Job[]> = signal([]);
   localStorageFavouriteJobsKey: string = "favouriteJobs";
-  
+
   constructor() {}
 
   async getJobs(): Promise<void> {
     (await fetch("http://localhost:4200/jobs")).json().then((jobs: Job[]) => this.jobs.set(jobs));
+  }
+
+  async getJobDetails(jobId: number): Promise<void> {
+    (await fetch(`http://localhost:4200/jobs/${jobId}`)).json().then((details: JobDetails) => this.jobDetails.set(details));
   }
 }

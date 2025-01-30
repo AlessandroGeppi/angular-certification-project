@@ -1,14 +1,12 @@
 import { Component, OnInit } from "@angular/core";
-import { RouterOutlet } from "@angular/router";
-import { mockHandlers } from "../mocks";
-import { TabViewModule } from 'primeng/tabview';
-import { AllJobsComponent } from "./components/all-jobs/all-jobs.component";
-import { FavouriteJobsComponent } from "./components/favourite-jobs/favourite-jobs.component";
+import { RouterModule, RouterOutlet } from "@angular/router";
+import { ButtonModule } from "primeng/button";
+import { DividerModule } from "primeng/divider";
 
 @Component({
   selector: "app-root",
   standalone: true,
-  imports: [RouterOutlet, TabViewModule, AllJobsComponent, FavouriteJobsComponent],
+  imports: [RouterOutlet, ButtonModule, DividerModule, RouterModule],
   templateUrl: "./app.component.html",
   styleUrl: "./app.component.css",
 })

@@ -3,11 +3,12 @@ import { Job } from "../../../types";
 import { ButtonModule } from "primeng/button";
 import { DividerModule } from "primeng/divider";
 import { JobsService } from "../../services/jobs.service";
+import { RouterModule } from "@angular/router";
 
 @Component({
   selector: "app-job-recap",
   standalone: true,
-  imports: [ButtonModule, DividerModule],
+  imports: [ButtonModule, DividerModule, RouterModule],
   templateUrl: "./job-recap.component.html",
   styleUrl: "./job-recap.component.css",
 })

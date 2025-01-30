@@ -1,8 +1,12 @@
-<p-tabView>
-  <p-tabPanel header="JOBS">
-    <app-all-jobs></app-all-jobs>
-  </p-tabPanel>
-  <p-tabPanel header="FAVOURITES">
-    <app-favourite-jobs></app-favourite-jobs>
-  </p-tabPanel>
-</p-tabView>
+<div class="grid">
+  <div class="col flex justify-content-center align-items-center gap-1">
+    <p-button severity="secondary" label="JOBS" size="large" [routerLink]="'/jobs'" class="menu-button" />
+    <p-button severity="secondary" label="FAVOURITES" size="large" [routerLink]="'/favourites'" class="menu-button" />
+  </div>
+</div>
+<p-divider></p-divider>
+<div class="grid">
+  <div class="col">
+    <router-outlet></router-outlet>
+  </div>
+</div>

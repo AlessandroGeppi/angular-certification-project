@@ -2,7 +2,6 @@ import { Component, OnInit } from "@angular/core";
 import { JobsService } from "../../services/jobs.service";
 import { ProgressSpinnerModule } from "primeng/progressspinner";
 import { ButtonModule } from "primeng/button";
-import { Job } from "../../../types";
 import { DividerModule } from "primeng/divider";
 import { JobRecapComponent } from "../job-recap/job-recap.component";
 
@@ -16,8 +15,8 @@ import { JobRecapComponent } from "../job-recap/job-recap.component";
 export class AllJobsComponent implements OnInit {
   constructor(public jobService: JobsService) {
     jobService.getJobs();
-    const localStorageJobs = localStorage.getItem(this.jobService.localStorageFavouriteJobsKey) ?? "";
-    this.jobService.favouriteJobs.set(localStorageJobs ? JSON.parse(localStorage.getItem(this.jobService.localStorageFavouriteJobsKey) ?? "") || [] : []);
+    const localStorageJobs: string = localStorage.getItem(this.jobService.localStorageFavouriteJobsKey) ?? "";
+    this.jobService.favouriteJobs.set(localStorageJobs ? JSON.parse(localStorageJobs ?? "") || [] : []);
   }
 
   ngOnInit(): void {}
