@@ -1,0 +1,22 @@
+<div class="grid nested-grid align-items-center">
+  @if(showFavouriteIcon){
+  <div class="col-fixed" style="width: 60px">
+    <p-button [icon]="'pi pi-star' + isFavourite(job.id)" [rounded]="true" [text]="true" severity="secondary" (click)="addRemoveToFavourite(job)" />
+  </div>
+  }
+  <div class="col align-items-center">
+    <div class="grid">
+      <div class="col flex gap-3 align-items-center">
+        <img [src]="job.companyLogo" alt="company logo" class="job-company-logo" />
+        <h3>{{ job.title }}</h3>
+      </div>
+    </div>
+
+    <div class="grid">
+      <div class="col flex gap-3 align-items-center">
+        <i><strong>Company:</strong> {{ job.companyName }}</i> - <i><strong>Reference:</strong> {{ job.reference }}</i>
+      </div>
+    </div>
+  </div>
+</div>
+<p-divider />

@@ -1,0 +1,5 @@
+@if(jobService.favouriteJobs()){ @for (item of jobService.favouriteJobs(); track $index) {
+<app-job-recap [job]="item" [showFavouriteIcon]="false"></app-job-recap>
+} } @else {
+<p-progressSpinner ariaLabel="loading" />
+}

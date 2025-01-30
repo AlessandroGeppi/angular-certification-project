@@ -318,5 +318,5 @@ export const mockHandlers = [
   }),
   http.get("/jobs", ({ request, params, cookies }) => {
     return HttpResponse.json(ALL_JOBS);
-  }),
+  })
 ];

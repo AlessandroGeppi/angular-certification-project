@@ -1,13 +1,21 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, OnInit } from "@angular/core";
+import { RouterOutlet } from "@angular/router";
+import { mockHandlers } from "../mocks";
+import { TabViewModule } from 'primeng/tabview';
+import { AllJobsComponent } from "./components/all-jobs/all-jobs.component";
+import { FavouriteJobsComponent } from "./components/favourite-jobs/favourite-jobs.component";
 
 @Component({
-  selector: 'app-root',
+  selector: "app-root",
   standalone: true,
-  imports: [RouterOutlet],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  imports: [RouterOutlet, TabViewModule, AllJobsComponent, FavouriteJobsComponent],
+  templateUrl: "./app.component.html",
+  styleUrl: "./app.component.css",
 })
-export class AppComponent {
-  title = 'ng-job-search';
+export class AppComponent implements OnInit {
+  title = "ng-job-search";
+
+  constructor() {}
+
+  ngOnInit() {}
 }

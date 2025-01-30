@@ -1,0 +1,5 @@
+@if(jobService.jobs()){ @for (item of jobService.jobs(); track $index) {
+<app-job-recap [job]="item"></app-job-recap>
+} } @else {
+<p-progressSpinner ariaLabel="loading" />
+}
