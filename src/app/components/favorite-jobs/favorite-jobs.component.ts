@@ -5,12 +5,12 @@ import { ProgressSpinnerModule } from "primeng/progressspinner";
 import { JobRecapComponent } from "../job-recap/job-recap.component";
 
 @Component({
-  selector: "app-favourite-jobs",
+  selector: "app-favorite-jobs",
   standalone: true,
   imports: [ProgressSpinnerModule, DividerModule, JobRecapComponent],
-  templateUrl: "./favourite-jobs.component.html",
-  styleUrl: "./favourite-jobs.component.css",
+  templateUrl: "./favorite-jobs.component.html",
+  styleUrl: "./favorite-jobs.component.css",
 })
-export class FavouriteJobsComponent {
+export class FavoriteJobsComponent {
   constructor(public jobService: JobsService) {}
 }

@@ -1,10 +1,10 @@
-<div class="grid">
+<div class="grid pl-3">
   <div class="col">
     <p-button label="Back" icon="pi pi-arrow-left" [routerLink]="'/jobs'" />
   </div>
 </div>
 @if(jobId >= 0){ @if(jobService.jobDetails()){
-<div class="grid">
+<div class="grid px-5">
   <div class="col-fixed flex justify-content-center align-items-center" style="width: 100px">
     <img [src]="jobService.jobDetails().companyLogo" alt="company logo" class="job-company-logo" />
   </div>
@@ -15,7 +15,7 @@
       </div>
     </div>
 
-    <div class="grid">
+    <div class="grid pl-2">
       <div class="col flex gap-3 align-items-center">
         @for(item of jobService.jobDetails().types; track $index) {
         <p-chip [label]="item"></p-chip>
@@ -26,7 +26,7 @@
     </div>
   </div>
 </div>
-<div class="grid flex-column">
+<div class="grid px-5 flex-column">
   <div class="col"><strong>Publish date:</strong> {{ jobService.jobDetails().publishDate }}</div>
   <div class="col"><strong>Location:</strong> {{ jobService.jobDetails().location }}</div>
   <div class="col"><strong>Reference:</strong> {{ jobService.jobDetails().reference }}</div>
@@ -38,7 +38,7 @@
 }@else {
 <p-progressSpinner ariaLabel="loading" />
 } }@else {
-<div class="grid">
+<div class="grid px-5">
   <div class="col flex justify-content-center align-items-center">
     <h2>Non ci sono dettagli per questo job</h2>
   </div>

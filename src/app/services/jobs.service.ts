@@ -8,10 +8,13 @@ import { Observable } from "rxjs";
 export class JobsService {
   jobs: WritableSignal<Job[]> = signal([]);
   jobDetails: WritableSignal<JobDetails> = signal({} as JobDetails);
-  favouriteJobs: WritableSignal<Job[]> = signal([]);
   localStorageFavouriteJobsKey: string = "favouriteJobs";
 
   constructor() {}
+
+  get favoriteJobs(): Job[] {
+    return this.jobs()?.filter((job) => job.isFavorite) ?? [];
+  }
 
   async getJobs(): Promise<void> {
     (await fetch("http://localhost:4200/jobs")).json().then((jobs: Job[]) => this.jobs.set(jobs));

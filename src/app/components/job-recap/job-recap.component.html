@@ -1,10 +1,5 @@
-<div class="grid nested-grid align-items-center job-wrapper">
-  @if(showFavouriteIcon){
-  <div class="col-fixed" style="width: 60px">
-    <p-button [icon]="'pi pi-star' + isFavourite(job.id)" [rounded]="true" [text]="true" severity="secondary" (click)="addRemoveToFavourite(job)" />
-  </div>
-  }
-  <div class="col align-items-center" [routerLink]="'/jobs/' + job.id">
+<div class="grid nested-grid justify-content-center align-items-center job-wrapper">
+  <div class="col-8 justify-content-center align-items-center" [routerLink]="'/jobs/' + job.id">
     <div class="grid">
       <div class="col flex gap-3 align-items-center">
         <img [src]="job.companyLogo" alt="company logo" class="job-company-logo" />
@@ -18,5 +13,11 @@
       </div>
     </div>
   </div>
+  @if(showFavouriteIcon){
+  <div class="col-fixed" style="width: 60px">
+    <!-- <p-button [icon]="'pi pi-star' + isFavourite(job.id)" [rounded]="true" [text]="true" severity="secondary" (click)="addRemoveToFavourite(job)" /> -->
+    <span [id]="'star-' + job.id" class="icon-star" [ngClass]="{ active: job.isFavorite }" (click)="addRemoveToFavourite(job)"></span>
+  </div>
+  }
 </div>
 <p-divider />

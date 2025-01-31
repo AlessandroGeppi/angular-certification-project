@@ -1,4 +1,4 @@
-@if(jobService.favouriteJobs() && jobService.favouriteJobs().length){ @for (item of jobService.favouriteJobs(); track $index) {
+@if(jobService.favoriteJobs.length){ @for (item of jobService.favoriteJobs; track $index) {
 <app-job-recap [job]="item" [showFavouriteIcon]="false"></app-job-recap>
 } } @else {
 <h2>Non è stato salvato alcun preferito, cliccare sull'icona a forma di stella per salvarne uno</h2>

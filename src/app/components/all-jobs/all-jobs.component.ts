@@ -14,9 +14,8 @@ import { JobRecapComponent } from "../job-recap/job-recap.component";
 })
 export class AllJobsComponent implements OnInit {
   constructor(public jobService: JobsService) {
-    jobService.getJobs();
     const localStorageJobs: string = localStorage.getItem(this.jobService.localStorageFavouriteJobsKey) ?? "";
-    this.jobService.favouriteJobs.set(localStorageJobs ? JSON.parse(localStorageJobs ?? "") || [] : []);
+    this.jobService.jobs.set(localStorageJobs ? JSON.parse(localStorageJobs ?? "") || [] : jobService.getJobs());
   }
 
   ngOnInit(): void {}
