@@ -13,7 +13,8 @@ export class JobsService {
   constructor() {}
 
   get favoriteJobs(): Job[] {
-    return this.jobs()?.filter((job) => job.isFavorite) ?? [];
+    const localStorageJobs: string = localStorage.getItem(this.localStorageFavouriteJobsKey) ?? "";
+    return ((localStorageJobs ? JSON.parse(localStorageJobs ?? "") : []) as Job[]).slice().filter((job: Job) => job.isFavorite);
   }
 
   async getJobs(): Promise<void> {
