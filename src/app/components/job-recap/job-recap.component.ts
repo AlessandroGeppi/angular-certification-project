@@ -4,7 +4,6 @@ import { ButtonModule } from "primeng/button";
 import { DividerModule } from "primeng/divider";
 import { JobsService } from "../../services/jobs.service";
 import { RouterModule } from "@angular/router";
-import { ViewChild, ElementRef } from "@angular/core";
 import { CommonModule } from "@angular/common";
 
 @Component({

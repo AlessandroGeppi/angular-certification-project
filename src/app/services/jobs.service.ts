@@ -1,6 +1,6 @@
-import { effect, Injectable, signal, WritableSignal } from "@angular/core";
+import { Injectable, signal, WritableSignal } from "@angular/core";
 import { Job, JobDetails } from "../../types";
-import { Observable } from "rxjs";
+import { environment } from "../../environments/environment.prod";
 
 @Injectable({
   providedIn: "root",
@@ -18,10 +18,10 @@ export class JobsService {
   }
 
   async getJobs(): Promise<void> {
-    (await fetch("http://localhost:4200/jobs")).json().then((jobs: Job[]) => this.jobs.set(jobs));
+    (await fetch(`${environment.baseUrl}/jobs`)).json().then((jobs: Job[]) => this.jobs.set(jobs));
   }
 
   async getJobDetails(jobId: number): Promise<void> {
-    (await fetch(`http://localhost:4200/jobs/${jobId}`)).json().then((details: JobDetails) => this.jobDetails.set(details));
+    (await fetch(`${environment.baseUrl}/jobs/${jobId}`)).json().then((details: JobDetails) => this.jobDetails.set(details));
   }
 }
